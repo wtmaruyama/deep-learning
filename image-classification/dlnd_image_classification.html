@@ -12750,7 +12750,6 @@ Keep Prob Tests Passed.
     <span class="c1"># Function Definition from Above:</span>
     <span class="c1">#   flatten(x_tensor)</span>
     
-    <span class="c1"># 2x2x512 to 2048</span>
     <span class="n">conv_layer</span> <span class="o">=</span> <span class="n">flatten</span><span class="p">(</span><span class="n">conv_layer</span><span class="p">)</span>
 
     <span class="c1"># TODO: Apply 1, 2, or 3 Fully Connected Layers</span>
@@ -12758,17 +12757,17 @@ Keep Prob Tests Passed.
     <span class="c1"># Function Definition from Above:</span>
     <span class="c1">#   fully_conn(x_tensor, num_outputs)</span>
     
-    <span class="c1"># Fully connected layer 1 - (keep_prob * 3072) to 512</span>
+    <span class="c1"># Fully connected layer 1 - to 512</span>
     <span class="n">fully_conn_layer</span> <span class="o">=</span> <span class="n">fully_conn</span><span class="p">(</span><span class="n">conv_layer</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
     
     <span class="c1"># Dropout</span>
-    <span class="n">fully_conn_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">fully_conn_layer</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">)</span> <span class="c1"># (keep_prob * 3072)</span>
+    <span class="n">fully_conn_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">fully_conn_layer</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">)</span>
     
-    <span class="c1"># Fully connected layer 2 - 512 to 128</span>
+    <span class="c1"># Fully connected layer 2 - 512 to 64</span>
     <span class="n">fully_conn_layer</span> <span class="o">=</span> <span class="n">fully_conn</span><span class="p">(</span><span class="n">fully_conn_layer</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
     
     <span class="c1"># Dropout</span>
-    <span class="n">fully_conn_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">fully_conn_layer</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">)</span> <span class="c1"># (keep_prob * 3072)</span>
+    <span class="n">fully_conn_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">fully_conn_layer</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">)</span>
     
     <span class="c1"># TODO: Apply an Output Layer</span>
     <span class="c1">#    Set this to the number of classes</span>
